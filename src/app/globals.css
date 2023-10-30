@@ -2,3 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.buttonEstudiante {
+    @apply  rounded-lg  text-center lg:p-2 p-1 lg:text-lg text-sm text-white mt-4
+}
+
+.buttonTabla {
+    @apply rounded-md lg:p-1
+}
+
+.inputs {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2 mb-2
+}
+
+.labels {
+    @apply block mb-2 text-sm font-medium text-gray-900
+}
+
+.tabla {
+    @apply  lg:w-full w-11/12 mx-auto lg:mx-auto border-collapse bg-gray-400 table-auto rounded-md overflow-hidden text-center
+}

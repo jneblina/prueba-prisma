@@ -6,25 +6,27 @@ export async function GET() {
         const estudiantes = await prisma.estudiante.findMany()
         return NextResponse.json(estudiantes)
     } catch(error){
-        if(error instanceof Error)
+        if(error instanceof Error) {
             NextResponse.json(error.message,{status: 500})
+        }
     }
 }
 
 export async function POST(request) {
-    try{
-        const {nombre,genero,edad,carrera} = await request.json()
-    const nuevoEstudiante = await prisma.estudiante.create({
-        data: {
-           nombre,
-           genero,
-           edad,
-           carrera
+    try {
+        const { nombre, genero, edad, carrera } = await request.json();
+        const nuevoEstudiante = await prisma.estudiante.create({
+            data: {
+                nombre,
+                genero,
+                edad,
+                carrera
+            }
+        });
+        return NextResponse.json(nuevoEstudiante);
+    } catch (error) {
+        if (error instanceof Error) {
+            return NextResponse.json(error.message, { status: 500 });
         }
-    })
-    return NextResponse.json(nuevoEstudiante)
-    } catch(error){
-        if(error instanceof Error)
-            NextResponse.json(error.message,{status: 500})
     }
 }
